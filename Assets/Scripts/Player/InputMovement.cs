@@ -15,10 +15,7 @@ public class InputMovement : MonoBehaviour
     {
         _horisontal = new Vector2(Input.GetAxis("Horizontal"), 0);
 
-        if (_movement.Grounded && Input.GetKey(KeyCode.Space))
-            _isJumpPressed = true;
-        else
-            _isJumpPressed = false;
+        _isJumpPressed = _movement.Grounded && Input.GetKey(KeyCode.Space);
 
         Animate();
 

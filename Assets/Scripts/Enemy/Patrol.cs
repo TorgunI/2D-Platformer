@@ -7,7 +7,7 @@ public class Patrol : MonoBehaviour
 {
     [SerializeField] private Vector3[] _wayPoints;
 
-    void Start()
+    private void Start()
     {
         Tween tween = transform.DOPath(_wayPoints, 5, PathType.Linear)
             .SetOptions(true)
