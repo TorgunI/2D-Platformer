@@ -6,39 +6,35 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    private Animator _animator;
-    private string _currentState;
+    [SerializeField] private PhysicsMovement _movement;
+    [SerializeField] private DirectionVector _directionVector;
 
-    public readonly string Idle = "Idle";
-    public readonly string Run = "Run";
-    public readonly string Jump = "Jump";
+    private Animator _animator;
+    private AnimationState _state;
+    private string _currentState;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
     }
 
-    public void ChangeAnimation(string state)
-    {
-        ChangeState(state);
-        PlayState();
-    }
-
     public void SetDefaultAnimation()
     {
-        ChangeAnimation(Idle);
+        _animator.Play("Idle");
     }
 
-    private void ChangeState(string newState)
+    public void Animate()
     {
-        if (_currentState == newState)
-            return;
-
-        _currentState = newState;
-    }
-
-    private void PlayState()
-    {
-        _animator.Play(_currentState);
+        if (_movement.Grounded)
+        {
+            if (_directionVector.GetHorisontal().x != 0)
+                _animator.Play("Run");
+            else
+                SetDefaultAnimation();
+        }
+        else if (_movement.Grounded == false)
+        {
+            _animator.Play("Jump");
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         Debug.Log("Вам нужно собрать монеты, которые разбросаны по всему уровню.");
     }

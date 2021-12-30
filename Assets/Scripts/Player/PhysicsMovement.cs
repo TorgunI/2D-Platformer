@@ -64,7 +64,7 @@ public class PhysicsMovement : MonoBehaviour
         Move(moveVector, true);
     }
 
-    public void GetTargetVelocity(Vector2 horisontalVelocity, bool isJumpPressed)
+    public void AssignTargetVelocity(Vector2 horisontalVelocity, bool isJumpPressed)
     {
         _horisontalVelocity = horisontalVelocity;
 

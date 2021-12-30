@@ -2797,7 +2797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658eb0caaca76664cbf6df608c1d9a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: {fileID: 5855544596774586958, guid: 5d4b6566d5a174448ba173b4e8fccd27, type: 3}
+  _coin: {fileID: 1262083633807448591, guid: 5d4b6566d5a174448ba173b4e8fccd27, type: 3}
   _spawn: {fileID: 464287388}
 --- !u!1001 &529028145
 PrefabInstance:
@@ -4090,6 +4090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db722b7a7b27d947ab0425375f15db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movement: {fileID: 715611709}
+  _directionVector: {fileID: 715611716}
 --- !u!114 &715611709 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8847115611667376924, guid: 14163e11bba5e9c4185057e53b6b093b, type: 3}

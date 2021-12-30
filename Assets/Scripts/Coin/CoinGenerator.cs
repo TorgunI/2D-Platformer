@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject _coin;
+    [SerializeField] private Coin _coin;
     [SerializeField] private Transform _spawn;
 
     private Transform[] _spawnPoints;
@@ -33,12 +33,9 @@ public class CoinGenerator : MonoBehaviour
         for (_currentPointIndex = 0; _currentPointIndex < _spawnPoints.Length; _currentPointIndex++)
         {
             Transform currentSpawnPoint = _spawnPoints[_currentPointIndex];
-            GameObject coin = Instantiate(_coin, currentSpawnPoint.position, Quaternion.identity);
+            Coin currentCoin = Instantiate(_coin, currentSpawnPoint.position, Quaternion.identity);
 
-            while(coin != null)
-            {
-                yield return null;
-            }
+            yield return new WaitWhile(() => currentCoin != null);
         }
         Debug.Log("Все монеты собраны!");
     }
