@@ -11,10 +11,9 @@ public class PhysicsMovement : MonoBehaviour
     private bool _isJumped;
     private float _minGroundNormalY = .65f;
     private float _gravityModifier = .5f;
-    private Vector2 _horisontalVelocity;
     private Rigidbody2D _rigidBody;
+    private Vector2 _horisontalVelocity;
     private Vector2 _velocity;
-    private Vector2 _targetVelocity;
     private Vector2 _groundNormal;
     private ContactFilter2D _contactFilter;
     private RaycastHit2D[] _hitBuffer;
