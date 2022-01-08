@@ -7,6 +7,7 @@ using UnityEngine;
 public class PhysicsMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private PlayerAnimation _playerAnimation;
 
     private bool _isJumped;
     private float _minGroundNormalY = .65f;
@@ -72,6 +73,8 @@ public class PhysicsMovement : MonoBehaviour
             _velocity.y = JumpSpeed;
             _isJumped = isJumpPressed;
         }
+
+        _playerAnimation.Animate();
     }
 
     private void Move(Vector2 moveVector, bool yMovement)

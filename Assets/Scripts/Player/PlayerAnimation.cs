@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 [RequireComponent(typeof(Animator))]
 
 public class PlayerAnimation : MonoBehaviour
@@ -10,9 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private DirectionVector _directionVector;
 
     private Animator _animator;
-    private AnimationState _state;
-    private string _currentState;
-
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -20,7 +17,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void SetDefaultAnimation()
     {
-        _animator.Play("Idle");
+        _animator.Play(AnimatorPlayerControllerStates.Idle);
     }
 
     public void Animate()
@@ -28,13 +25,13 @@ public class PlayerAnimation : MonoBehaviour
         if (_movement.Grounded)
         {
             if (_directionVector.GetHorisontal().x != 0)
-                _animator.Play("Run");
+                _animator.Play(AnimatorPlayerControllerStates.Run);
             else
                 SetDefaultAnimation();
         }
         else if (_movement.Grounded == false)
         {
-            _animator.Play("Jump");
+            _animator.Play(AnimatorPlayerControllerStates.Jump);
         }
     }
 }

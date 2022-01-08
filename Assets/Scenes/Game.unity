@@ -4135,7 +4135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movement: {fileID: 715611709}
-  _playerAnimation: {fileID: 715611708}
 --- !u!4 &799237563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6583601977518978284, guid: 80b9f50a4d36f354983bb3b9158ca26d, type: 3}
