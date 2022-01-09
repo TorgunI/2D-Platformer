@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 [RequireComponent(typeof(Animator))]
 
 public class PlayerAnimation : MonoBehaviour
@@ -10,32 +11,42 @@ public class PlayerAnimation : MonoBehaviour
 
     private Animator _animator;
 
-    public const string Idle = nameof(Idle);
-    public const string Run = nameof(Run);
-    public const string Jump = nameof(Jump);
+    private const string Idle = nameof(Idle);
+    private const string Run = nameof(Run);
+    private const string Jump = nameof(Jump);
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
     }
 
-    public void SetDefaultAnimation()
+    private void SetDefaultState()
     {
         _animator.Play(Idle);
+    }
+
+    private void SetRunState()
+    {
+        _animator.Play(Run);
+    }
+
+    private void SetJumpState()
+    {
+        _animator.Play(Jump);
     }
 
     public void Animate()
     {
         if (_movement.Grounded)
         {
-            if (_directionVector.GetHorisontal().x != 0)
-                _animator.Play(Run);
+            if (_directionVector.GetHorisontal() != 0)
+                SetRunState();
             else
-                SetDefaultAnimation();
+                SetDefaultState();
         }
         else if (_movement.Grounded == false)
         {
-            _animator.Play(Jump);
+            SetJumpState();
         }
     }
 }

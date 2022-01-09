@@ -19,8 +19,8 @@ public class DirectionVector : MonoBehaviour
         _movement.AssignTargetVelocity(_horisontal, _isJumpPressed);
     }
 
-    public Vector2 GetHorisontal()
+    public float GetHorisontal()
     {
-        return _horisontal;
+        return _horisontal.x;
     }
 }
